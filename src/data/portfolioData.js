@@ -4,7 +4,9 @@ export const personalInfo = {
   email: "saqhibbilal@gmail.com",
   location: "India",
   tagline: "Building digital experiences that matter",
-  about: "Software Engineer with interest in Distributed ML and Low level systems.",
+  about: "A passionate software engineer with a solid foundation in distributed systems and software development, driven by an insatiable curiosity for cutting-edge technology. My journey began with building scalable web applications, but my true passion lies in the intersection of machine learning, MLOps, and low-level systems design. I believe in the power of technology to solve complex real-world problems and am constantly pushing the boundaries of what's possible. As Dr. APJ Abdul Kalam once said, 'Dream is not what you see in sleep. Dream is something which does not let you sleep.' This philosophy drives me to continuously learn, innovate, and build systems that can handle the challenges of tomorrow. From participating in hackathons to contributing to open-source projects, I thrive in collaborative environments where innovation meets execution. My goal is to architect and build systems that not only scale efficiently but also make a meaningful impact in the world of AI and edge computing.",
+  quote: "Dream is not what you see in sleep. Dream is something which does not let you sleep.",
+  quoteAuthor: "Dr. APJ Abdul Kalam"
 };
 
 export const projects = [
