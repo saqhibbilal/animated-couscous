@@ -47,7 +47,7 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="section-padding bg-primary-50 dark:bg-primary-950 relative overflow-hidden">
+    <section id="contact" className="section-padding relative overflow-hidden" style={{backgroundColor: '#100811'}}>
       {/* Parallax Background */}
       <motion.div
         style={{ y }}
@@ -65,36 +65,36 @@ const Contact = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
           viewport={{ once: true, margin: "-100px" }}
-          className="text-center mb-16"
+          className="text-center mb-8"
         >
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-semibold mb-6 text-primary-900 dark:text-primary-50 tracking-tight">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold mb-3 text-primary-900 dark:text-primary-50 tracking-tight">
             Get In Touch
           </h2>
-          <p className="text-lg text-primary-600 dark:text-primary-400 mb-8 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base text-primary-600 dark:text-primary-400 mb-4 max-w-3xl mx-auto leading-relaxed">
             Ready to work together? Let's discuss your next project and bring your ideas to life.
           </p>
-          <div className="w-16 h-0.5 bg-primary-900 dark:bg-primary-50 mx-auto"></div>
+          <div className="w-12 h-0.5 bg-primary-900 dark:bg-primary-50 mx-auto"></div>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-6 max-w-6xl mx-auto">
           {/* Contact Information */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
             viewport={{ once: true }}
-            className="space-y-8"
+            className="space-y-4"
           >
-            <div className="bg-white dark:bg-primary-900 rounded-2xl p-8 shadow-sm border border-primary-200 dark:border-primary-800">
-              <h3 className="text-2xl font-semibold text-primary-900 dark:text-primary-50 mb-6">
+            <div className="rounded-xl p-4 shadow-sm border" style={{backgroundColor: '#301934', borderColor: '#4B2650'}}>
+              <h3 className="text-lg font-semibold text-white mb-3">
                 Let's Connect
               </h3>
-              <p className="text-primary-600 dark:text-primary-400 mb-8 leading-relaxed">
+              <p className="text-gray-300 mb-4 leading-relaxed text-sm">
                 I'm always open to discussing new opportunities, exciting projects, and potential collaborations. 
                 Feel free to reach out if you'd like to work together or just want to say hello!
               </p>
               
-              <div className="space-y-4">
+              <div className="space-y-2">
                 {contactInfo.map((info, index) => (
                   <motion.div
                     key={info.title}
@@ -102,24 +102,24 @@ const Contact = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
                     viewport={{ once: true }}
-                    className="flex items-center space-x-4"
+                    className="flex items-center space-x-2"
                   >
-                    <div className="w-12 h-12 bg-primary-100 dark:bg-primary-800 rounded-xl flex items-center justify-center text-primary-600 dark:text-primary-400">
+                    <div className="w-8 h-8 rounded-lg flex items-center justify-center text-white" style={{backgroundColor: '#4B2650'}}>
                       {info.icon}
                     </div>
                     <div>
-                      <h4 className="text-sm font-medium text-primary-700 dark:text-primary-300">
+                      <h4 className="text-xs font-medium text-white">
                         {info.title}
                       </h4>
                       {info.link ? (
                         <a
                           href={info.link}
-                          className="text-primary-600 dark:text-primary-400 hover:text-primary-900 dark:hover:text-primary-50 transition-colors duration-300"
+                          className="text-gray-300 hover:text-white transition-colors duration-300 text-sm"
                         >
                           {info.value}
                         </a>
                       ) : (
-                        <p className="text-primary-600 dark:text-primary-400">
+                        <p className="text-gray-300 text-sm">
                           {info.value}
                         </p>
                       )}
@@ -129,23 +129,23 @@ const Contact = () => {
               </div>
             </div>
 
-            <div className="bg-primary-900 dark:bg-primary-50 rounded-2xl p-8 text-primary-50 dark:text-primary-900 shadow-sm border border-primary-800 dark:border-primary-200">
-              <h3 className="text-xl font-semibold mb-4">Why Work With Me?</h3>
-              <ul className="space-y-3 text-sm">
-                <li className="flex items-start space-x-2">
-                  <span className="w-1.5 h-1.5 bg-primary-300 dark:bg-primary-600 rounded-full mt-2 flex-shrink-0"></span>
+            <div className="rounded-xl p-4 text-white shadow-sm border" style={{backgroundColor: '#4B2650', borderColor: '#301934'}}>
+              <h3 className="text-base font-semibold mb-2">Why Work With Me?</h3>
+              <ul className="space-y-1.5 text-xs">
+                <li className="flex items-start space-x-1.5">
+                  <span className="w-1 h-1 bg-white rounded-full mt-1.5 flex-shrink-0"></span>
                   <span>Clean, efficient, and maintainable code</span>
                 </li>
-                <li className="flex items-start space-x-2">
-                  <span className="w-1.5 h-1.5 bg-primary-300 dark:bg-primary-600 rounded-full mt-2 flex-shrink-0"></span>
+                <li className="flex items-start space-x-1.5">
+                  <span className="w-1 h-1 bg-white rounded-full mt-1.5 flex-shrink-0"></span>
                   <span>Responsive and user-friendly designs</span>
                 </li>
-                <li className="flex items-start space-x-2">
-                  <span className="w-1.5 h-1.5 bg-primary-300 dark:bg-primary-600 rounded-full mt-2 flex-shrink-0"></span>
+                <li className="flex items-start space-x-1.5">
+                  <span className="w-1 h-1 bg-white rounded-full mt-1.5 flex-shrink-0"></span>
                   <span>Timely delivery and clear communication</span>
                 </li>
-                <li className="flex items-start space-x-2">
-                  <span className="w-1.5 h-1.5 bg-primary-300 dark:bg-primary-600 rounded-full mt-2 flex-shrink-0"></span>
+                <li className="flex items-start space-x-1.5">
+                  <span className="w-1 h-1 bg-white rounded-full mt-1.5 flex-shrink-0"></span>
                   <span>Ongoing support and maintenance</span>
                 </li>
               </ul>
@@ -159,18 +159,18 @@ const Contact = () => {
             transition={{ duration: 0.8, delay: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
             viewport={{ once: true }}
           >
-            <div className="bg-white dark:bg-primary-900 rounded-2xl p-8 shadow-sm border border-primary-200 dark:border-primary-800">
-              <div className="flex items-center mb-6">
-                <MessageSquare className="w-6 h-6 text-primary-600 dark:text-primary-400 mr-3" />
-                <h3 className="text-2xl font-semibold text-primary-900 dark:text-primary-50">
+            <div className="rounded-xl p-6 shadow-sm border" style={{backgroundColor: '#301934', borderColor: '#4B2650'}}>
+              <div className="flex items-center mb-4">
+                <MessageSquare className="w-5 h-5 text-white mr-2" />
+                <h3 className="text-xl font-semibold text-white">
                   Send a Message
                 </h3>
               </div>
 
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="grid md:grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-primary-700 dark:text-primary-300 mb-2">
+                    <label htmlFor="name" className="block text-xs font-medium text-white mb-1.5">
                       Name
                     </label>
                     <input
@@ -180,12 +180,12 @@ const Contact = () => {
                       value={formData.name}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 bg-primary-50 dark:bg-primary-800 border border-primary-200 dark:border-primary-700 rounded-xl text-primary-900 dark:text-primary-50 placeholder-primary-500 dark:placeholder-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300"
+                      className="w-full px-3 py-2.5 border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:border-transparent transition-all duration-300 text-sm" style={{backgroundColor: '#4B2650', borderColor: '#301934'}}
                       placeholder="Your name"
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-primary-700 dark:text-primary-300 mb-2">
+                    <label htmlFor="email" className="block text-xs font-medium text-white mb-1.5">
                       Email
                     </label>
                     <input
@@ -195,14 +195,14 @@ const Contact = () => {
                       value={formData.email}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 bg-primary-50 dark:bg-primary-800 border border-primary-200 dark:border-primary-700 rounded-xl text-primary-900 dark:text-primary-50 placeholder-primary-500 dark:placeholder-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300"
+                      className="w-full px-3 py-2.5 border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:border-transparent transition-all duration-300 text-sm" style={{backgroundColor: '#4B2650', borderColor: '#301934'}}
                       placeholder="your.email@example.com"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-primary-700 dark:text-primary-300 mb-2">
+                  <label htmlFor="subject" className="block text-xs font-medium text-white mb-1.5">
                     Subject
                   </label>
                   <input
@@ -212,13 +212,13 @@ const Contact = () => {
                     value={formData.subject}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 bg-primary-50 dark:bg-primary-800 border border-primary-200 dark:border-primary-700 rounded-xl text-primary-900 dark:text-primary-50 placeholder-primary-500 dark:placeholder-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300"
+                    className="w-full px-3 py-2.5 border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:border-transparent transition-all duration-300 text-sm" style={{backgroundColor: '#4B2650', borderColor: '#301934'}}
                     placeholder="Project inquiry"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-primary-700 dark:text-primary-300 mb-2">
+                  <label htmlFor="message" className="block text-xs font-medium text-white mb-1.5">
                     Message
                   </label>
                   <textarea
@@ -227,8 +227,8 @@ const Contact = () => {
                     value={formData.message}
                     onChange={handleInputChange}
                     required
-                    rows={6}
-                    className="w-full px-4 py-3 bg-primary-50 dark:bg-primary-800 border border-primary-200 dark:border-primary-700 rounded-xl text-primary-900 dark:text-primary-50 placeholder-primary-500 dark:placeholder-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300 resize-none"
+                    rows={5}
+                    className="w-full px-2 py-2.5 border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:border-transparent transition-all duration-300 resize-none text-sm" style={{backgroundColor: '#4B2650', borderColor: '#301934'}}
                     placeholder="Tell me about your project..."
                   />
                 </div>
@@ -237,11 +237,11 @@ const Contact = () => {
                   type="submit"
                   whileHover={{ scale: 1.02, y: -2 }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full flex items-center justify-center space-x-2 px-8 py-4 bg-primary-900 dark:bg-primary-50 text-primary-50 dark:text-primary-900 rounded-2xl font-semibold hover:bg-primary-800 dark:hover:bg-primary-100 transition-all duration-300 shadow-sm hover:shadow-md border border-primary-800 dark:border-primary-200"
+                  className="w-full flex items-center justify-center space-x-2 px-6 py-3 text-white rounded-xl font-semibold transition-all duration-300 shadow-sm hover:shadow-md border text-sm" style={{backgroundColor: '#4B2650', borderColor: '#301934'}}
                 >
-                  <Send size={18} />
+                  <Send size={16} />
                   <span>Send Message</span>
-                  <ArrowUpRight size={16} />
+                  <ArrowUpRight size={14} />
                 </motion.button>
               </form>
             </div>

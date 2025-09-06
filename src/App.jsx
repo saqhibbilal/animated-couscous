@@ -28,21 +28,94 @@ function App() {
 
   if (isLoading) {
     return (
-      <div className="fixed inset-0 bg-gray-50 dark:bg-gray-900 flex items-center justify-center z-50">
+      <div className="fixed inset-0 flex items-center justify-center z-50" style={{backgroundColor: '#150317'}}>
         <div className="text-center">
-          <div className="w-16 h-16 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-          <h2 className="text-2xl font-semibold text-gray-900 dark:text-white">
-            Loading Portfolio...
-          </h2>
+          <div className="relative mb-8">
+            {/* Sharp and Clean Loading Animation */}
+            <div className="loading-container">
+              <div className="loading-grid">
+                <div className="loading-square"></div>
+                <div className="loading-square"></div>
+                <div className="loading-square"></div>
+                <div className="loading-square"></div>
+                <div className="loading-square"></div>
+                <div className="loading-square"></div>
+                <div className="loading-square"></div>
+                <div className="loading-square"></div>
+                <div className="loading-square"></div>
+              </div>
+            </div>
+            
+            {/* Loading text */}
+            <div className="text-center">
+              <h2 className="text-2xl font-semibold text-white mb-2">
+                Loading Portfolio...
+              </h2>
+              <div className="flex justify-center space-x-1">
+                <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
+                <div className="w-2 h-2 bg-white rounded-full animate-pulse" style={{animationDelay: '0.2s'}}></div>
+                <div className="w-2 h-2 bg-white rounded-full animate-pulse" style={{animationDelay: '0.4s'}}></div>
+              </div>
+            </div>
+          </div>
+          
+          {/* Custom CSS for sharp loading animation */}
+          <style jsx>{`
+            .loading-container {
+              width: 80px;
+              height: 80px;
+              margin: 0 auto 2rem;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
+            
+            .loading-grid {
+              display: grid;
+              grid-template-columns: repeat(3, 1fr);
+              gap: 6px;
+              width: 80px;
+              height: 80px;
+            }
+            
+            .loading-square {
+              width: 20px;
+              height: 20px;
+              background: linear-gradient(45deg, #ffffff, #e0e0e0);
+              border-radius: 3px;
+              animation: pulse 1.5s ease-in-out infinite;
+            }
+            
+            .loading-square:nth-child(1) { animation-delay: 0s; }
+            .loading-square:nth-child(2) { animation-delay: 0.1s; }
+            .loading-square:nth-child(3) { animation-delay: 0.2s; }
+            .loading-square:nth-child(4) { animation-delay: 0.3s; }
+            .loading-square:nth-child(5) { animation-delay: 0.4s; }
+            .loading-square:nth-child(6) { animation-delay: 0.5s; }
+            .loading-square:nth-child(7) { animation-delay: 0.6s; }
+            .loading-square:nth-child(8) { animation-delay: 0.7s; }
+            .loading-square:nth-child(9) { animation-delay: 0.8s; }
+            
+            @keyframes pulse {
+              0%, 100% { 
+                opacity: 0.3;
+                transform: scale(0.8);
+              }
+              50% { 
+                opacity: 1;
+                transform: scale(1);
+              }
+            }
+          `}</style>
         </div>
       </div>
     );
   }
 
   return (
-    <div className={`min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300 ${isDark ? 'dark' : ''}`}>
+    <div className="min-h-screen transition-colors duration-300" style={{backgroundColor: '#100811'}}>
       {/* Scroll Progress Bar */}
-      <div className="fixed top-0 left-0 w-full h-1 bg-gray-200 dark:bg-gray-700 z-50">
+      <div className="fixed top-0 left-0 w-full h-1 z-50" style={{backgroundColor: '#4B2650'}}>
         <div 
           className="h-full bg-blue-600 transition-all duration-100"
           style={{ width: `${scrollProgress}%` }}
@@ -67,8 +140,8 @@ function App() {
       {/* Footer */}
       <Footer />
 
-      {/* Theme Toggle Button */}
-      <button
+      {/* Theme Toggle Button - Commented out for dark mode only */}
+      {/* <button
         onClick={toggleTheme}
         className="fixed bottom-6 right-6 w-14 h-14 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 z-40"
       >
@@ -81,7 +154,7 @@ function App() {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
           </svg>
         )}
-      </button>
+      </button> */}
     </div>
   );
 }

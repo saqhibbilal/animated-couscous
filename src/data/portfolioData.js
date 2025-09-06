@@ -1,6 +1,6 @@
 export const personalInfo = {
   name: "Saqhib Bilal",
-  title: "Heavy Lifting at Scale",
+  title: "In Progress. On Purpose.",
   email: "saqhibbilal@gmail.com",
   location: "India",
   tagline: "Building digital experiences that matter",
