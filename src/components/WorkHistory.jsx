@@ -87,11 +87,54 @@ const WorkHistory = () => {
           viewport={{ once: true, margin: "-100px" }}
           className="relative"
         >
-          {/* Timeline Line */}
-          <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary-300 via-primary-500 to-primary-300 dark:from-primary-600 dark:via-primary-400 dark:to-primary-600">
+          {/* Animated Timeline Line */}
+          <div className="absolute left-6 top-0 bottom-0 w-0.5 overflow-hidden">
+            {/* Base gradient line */}
+            <div className="absolute inset-0 bg-gradient-to-b from-purple-300 via-purple-500 to-purple-300 dark:from-purple-600 dark:via-purple-400 dark:to-purple-600 opacity-30"></div>
+            
+            {/* Animated progress line with glow */}
             <motion.div
-              className="absolute top-0 left-0 w-full bg-primary-600 dark:bg-primary-400"
+              className="absolute top-0 left-0 w-full bg-gradient-to-b from-purple-400 via-purple-500 to-purple-400 dark:from-purple-500 dark:via-purple-300 dark:to-purple-500"
+              style={{ 
+                height: timelineProgress.get() + '%',
+                boxShadow: '0 0 8px rgba(168, 85, 247, 0.4), 0 0 16px rgba(168, 85, 247, 0.2)'
+              }}
+              initial={{ height: '0%' }}
+              animate={{ height: timelineProgress.get() + '%' }}
+              transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+            />
+            
+            {/* Pulsing glow effect */}
+            <motion.div
+              className="absolute top-0 left-0 w-full bg-gradient-to-b from-purple-400 via-purple-300 to-purple-400 dark:from-purple-500 dark:via-purple-200 dark:to-purple-500"
+              style={{ 
+                height: timelineProgress.get() + '%',
+                boxShadow: '0 0 12px rgba(168, 85, 247, 0.6), 0 0 24px rgba(168, 85, 247, 0.3)'
+              }}
+              animate={{ 
+                opacity: [0.3, 0.8, 0.3],
+                scaleX: [1, 1.2, 1]
+              }}
+              transition={{ 
+                duration: 2,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            />
+            
+            {/* Sharp reveal line */}
+            <motion.div
+              className="absolute top-0 left-0 w-full bg-gradient-to-b from-white via-purple-200 to-white dark:from-purple-100 dark:via-purple-300 dark:to-purple-100"
               style={{ height: timelineProgress.get() + '%' }}
+              initial={{ height: '0%', opacity: 0 }}
+              animate={{ 
+                height: timelineProgress.get() + '%',
+                opacity: [0, 1, 0.7, 1]
+              }}
+              transition={{ 
+                height: { duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] },
+                opacity: { duration: 0.6, ease: "easeOut" }
+              }}
             />
           </div>
 
@@ -102,12 +145,75 @@ const WorkHistory = () => {
                 key={job.id}
                 variants={itemVariants}
                 className="relative flex items-start group"
+                whileHover={{
+                  transition: { duration: 0.3 }
+                }}
               >
-                {/* Timeline Dot */}
+                {/* Connection line on hover */}
+                <motion.div
+                  className="absolute left-6 top-1.5 w-6 h-0.5 bg-gradient-to-r from-purple-400 to-transparent opacity-0"
+                  whileHover={{ 
+                    opacity: 0.6,
+                    scaleX: 1,
+                    transition: { duration: 0.2 }
+                  }}
+                  initial={{ scaleX: 0 }}
+                />
+
+                {/* Enhanced Timeline Dot */}
                 <motion.div
                   variants={dotVariants}
-                  className="absolute left-4 w-3 h-3 bg-primary-600 dark:bg-primary-400 rounded-full border-3 border-white dark:border-primary-950 shadow-lg z-10 group-hover:scale-125 transition-transform duration-300"
-                />
+                  className="absolute left-4 w-3 h-3 z-10"
+                  whileHover={{ 
+                    scale: 1.4,
+                    transition: { duration: 0.2, ease: "easeOut" }
+                  }}
+                  whileTap={{ scale: 1.2 }}
+                >
+                  {/* Outer glow ring */}
+                  <motion.div
+                    className="absolute inset-0 w-3 h-3 bg-purple-400 dark:bg-purple-300 rounded-full opacity-0"
+                    whileHover={{ 
+                      opacity: 0.3,
+                      scale: 2,
+                      transition: { duration: 0.3 }
+                    }}
+                  />
+                  
+                  {/* Main dot */}
+                  <motion.div
+                    className="absolute inset-0 w-3 h-3 bg-gradient-to-br from-purple-500 to-purple-600 dark:from-purple-400 dark:to-purple-500 rounded-full border-2 border-white dark:border-primary-950 shadow-lg"
+                    whileHover={{
+                      boxShadow: '0 0 12px rgba(168, 85, 247, 0.6), 0 0 24px rgba(168, 85, 247, 0.3)',
+                      transition: { duration: 0.2 }
+                    }}
+                  />
+                  
+                  {/* Inner highlight */}
+                  <motion.div
+                    className="absolute top-0.5 left-0.5 w-1 h-1 bg-white dark:bg-purple-100 rounded-full opacity-80"
+                    whileHover={{ 
+                      opacity: 1,
+                      scale: 1.2,
+                      transition: { duration: 0.2 }
+                    }}
+                  />
+                  
+                  {/* Pulsing effect */}
+                  <motion.div
+                    className="absolute inset-0 w-3 h-3 bg-purple-400 dark:bg-purple-300 rounded-full"
+                    animate={{ 
+                      scale: [1, 1.2, 1],
+                      opacity: [0, 0.3, 0]
+                    }}
+                    transition={{ 
+                      duration: 2,
+                      repeat: Infinity,
+                      delay: index * 0.5,
+                      ease: "easeInOut"
+                    }}
+                  />
+                </motion.div>
 
                 {/* Content Card */}
                 <div className="ml-12 flex-1">
